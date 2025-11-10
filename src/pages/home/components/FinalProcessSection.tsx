@@ -41,7 +41,7 @@ export default function FinalProcessSection() {
 
       <div className="pt-[30px]">
         <div className="flex flex-shrink-0 items-center gap-3">
-          <div className="w-[14px] h-[14px] bg-orange-500 rounded-sm"></div>
+          <div className="w-[14px] h-[14px] bg-[#0C9DE0]  rounded-sm"></div>
           <span className="text-[16px] font-medium leading-[1.5] text-gray-600">
             Quy trình hợp tác đơn giản
           </span>
@@ -60,7 +60,7 @@ export default function FinalProcessSection() {
 
             <div>
               <button className="h-[54px] px-[5px] rounded-full text-black flex gap-[14px] items-center relative group bg-gray-100">
-                <div className="absolute w-[44px] transition-all duration-300 h-[44px] left-[5px] rounded-full bg-orange-500 group-hover:w-[calc(100%-10px)] group-focus:w-[calc(100%-10px)]"></div>
+                <div className="absolute w-[44px] transition-all duration-300 h-[44px] left-[5px] rounded-full bg-[#0C9DE0]  group-hover:w-[calc(100%-10px)] group-focus:w-[calc(100%-10px)]"></div>
                 <span className="w-[44px] h-[44px] rounded-full flex items-center justify-center z-10">
                   <i className="ri-plane-line text-white"></i>
                 </span>
@@ -83,9 +83,9 @@ export default function FinalProcessSection() {
             >
               <div className="flex items-center relative sm:w-full sm:my-[30px] lg:my-[60px]">
                 <div className="sm:h-[3px] h-full sm:w-full w-[3px] bg-gray-300"></div>
-                <div className="absolute w-0 bg-orange-500 group-hover:w-full h-[3px] transition-all duration-500"></div>
+                <div className="absolute w-0 bg-[#0C9DE0]  group-hover:w-full h-[3px] transition-all duration-500"></div>
                 <div className="absolute sm:left-[32px] sm:top-[-15px] left-[-15px] top-[20px] w-[32px] h-[32px] rounded-[32px] bg-white flex items-center justify-center">
-                  <div className="w-[16px] h-[16px] rounded-[16px] bg-orange-500"></div>
+                  <div className="w-[16px] h-[16px] rounded-[16px] bg-[#0C9DE0] "></div>
                 </div>
               </div>
 

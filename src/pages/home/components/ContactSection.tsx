@@ -63,7 +63,7 @@ const ContactSection = () => {
   return (
     <section id="contact-section" className="lg:max-h-[900px] bg-cover bg-center mt-[80px] lg:mt-[160px] md:p-[40px] p-3 lg:p-0 flex justify-center text-start" style={{backgroundImage: "url('https://readdy.ai/api/search-image?query=Modern%20luxury%20villa%20resort%20with%20orange%20sunset%20sky%20background%2C%20professional%20hospitality%20business%20setting%2C%20warm%20lighting%2C%20contemporary%20architecture%2C%20peaceful%20atmosphere%2C%20high-end%20property%20management%20concept&width=1920&height=900&seq=contact-bg-001&orientation=landscape')"}}>
       <div className="container lg:translate-y-[-80px]">
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 lg:p-[80px] md:p-[40px] p-4 flex lg:flex-row flex-col gap-[16px]">
+        <div className="bg-gradient-to-r from-[#0C9DE0] to-[#0C9DE0] lg:p-[80px] md:p-[40px] p-4 flex lg:flex-row flex-col gap-[16px]">
           <div className="flex-1 lg:w-0">
             <div className="lg:text-[36px] text-[28px] text-white font-medium">Đăng ký tư vấn miễn phí ngay hôm nay!</div>
             <div className="lg:py-[20px] py-[15px] flex flex-col gap-[30px]">
@@ -250,7 +250,7 @@ const ContactSection = () => {
                   </div>
                   
                   <button
-                    className="bg-orange-500 hover:bg-orange-600 rounded-[8px] h-[56px] w-full flex items-center justify-center text-white text-base flex-shrink-0 transition-colors duration-300 whitespace-nowrap"
+                    className="bg-[#0C9DE0] hover:bg-[#0c9de0c9] rounded-[8px] h-[56px] w-full flex items-center justify-center text-white text-base flex-shrink-0 transition-colors duration-300 whitespace-nowrap"
                     type="submit"
                     disabled={isSubmitting}
                   >

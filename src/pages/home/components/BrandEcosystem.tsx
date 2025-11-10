@@ -6,6 +6,9 @@ import img1 from '../../../components/images/z7198753997114_80e6e4c3a5dc12d464a1
 import img2 from '../../../components/images/z7198753997154_319835783ec874a058bab789407c91d8.jpg';
 import img3 from '../../../components/images/z7198753997167_699f02fd051db19e904bdca5e6a22da1.jpg';
 import img4 from '../../../components/images/z7198753997147_7bb9e7416eb470a17dcea77a7bc944e6.jpg';
+import img5 from '../../../components/images/bd-vn-ok.png';
+
+
 
 
 export default function BrandEcosystem() {
@@ -135,7 +138,7 @@ export default function BrandEcosystem() {
       <AnimatedSection delay={200}>
         <div className="md:py-[60px] py-[30px] flex flex-col lg:items-center">
           <div className="flex flex-shrink-0 items-center gap-3">
-            <div className="w-[14px] h-[14px] bg-orange-500 rounded-sm"></div>
+            <div className="w-[14px] h-[14px] bg-[#0C9DE0]  rounded-sm"></div>
             <span className="text-[16px] font-medium leading-[1.5] text-gray-600">Mạng lưới du lịch rộng khắp</span>
           </div>
           
@@ -148,7 +151,7 @@ export default function BrandEcosystem() {
               {stats.map((stat, index) => (
                 <AnimatedSection key={index} delay={300 + index * 100}>
                   <div>
-                    <div className="text-[72px] text-orange-500 font-semibold leading-[1.1]">{stat.number}</div>
+                    <div className="text-[72px] text-[#0C9DE0] font-semibold leading-[1.1]">{stat.number}</div>
                     <div className="text-[20px] text-gray-800 font-medium leading-[1.4]">{stat.label}</div>
                   </div>
                 </AnimatedSection>
@@ -158,7 +161,7 @@ export default function BrandEcosystem() {
             <AnimatedSection delay={400}>
               <div className="max-w-[670px] mx-auto">
                 <img 
-                  src="https://static.readdy.ai/image/4a3482445aede2b455dbed1f5755971b/6142fea6888727afff2c71c74b5c9ace.png" 
+                  src={img5}
                   alt="Bản đồ điểm đến du lịch TTP Travel" 
                   className="w-full h-auto rounded-lg"
                 />
@@ -168,11 +171,11 @@ export default function BrandEcosystem() {
             <AnimatedSection delay={500}>
               <div className="flex-shrink-0 flex flex-col gap-[24px] lg:items-start items-center">
                 <div className="flex flex-row items-center gap-[20px] w-[240px] lg:w-auto">
-                  <div className="lg:w-[40px] w-[20px] lg:h-[40px] h-[20px] bg-orange-500 rounded-full flex-shrink-0"></div>
+                  <div className="lg:w-[40px] w-[20px] lg:h-[40px] h-[20px] bg-orange-500  rounded-full flex-shrink-0"></div>
                   <div className="lg:text-[20px] text-[16px] font-medium leading-[1.4]">Đang hoạt động</div>
                 </div>
                 <div className="flex flex-row items-center gap-[20px] w-[240px] lg:w-auto">
-                  <div className="lg:w-[40px] w-[20px] lg:h-[40px] h-[20px] bg-gray-300 rounded-full flex-shrink-0"></div>
+                  <div className="lg:w-[40px] w-[20px] lg:h-[40px] h-[20px] bg-[#9FBB50]  rounded-full flex-shrink-0"></div>
                   <div className="lg:text-[20px] text-[16px] font-medium leading-[1.4]">Kế hoạch mở rộng</div>
                 </div>
               </div>

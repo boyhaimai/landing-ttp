@@ -125,7 +125,7 @@ export default function PerformanceSection() {
 
       <div className="pt-[30px]">
         <AnimatedSection className="flex flex-shrink-0 items-center gap-3">
-          <div className="w-[14px] h-[14px] bg-orange-500 rounded-sm"></div>
+          <div className="w-[14px] h-[14px] bg-[#0C9DE0]  rounded-sm"></div>
           <span className="text-[16px] font-medium leading-[1.5] text-gray-600">
             Dịch vụ hiệu quả
           </span>
@@ -151,7 +151,7 @@ export default function PerformanceSection() {
 
             <AnimatedSection delay={600}>
               <button className="h-[54px] px-[5px] rounded-full text-black flex gap-[14px] items-center relative group bg-gray-100">
-                <div className="absolute w-[44px] transition-all duration-300 h-[44px] left-[5px] rounded-full bg-orange-500 group-hover:w-[calc(100%-10px)] group-focus:w-[calc(100%-10px)]"></div>
+                <div className="absolute w-[44px] transition-all duration-300 h-[44px] left-[5px] rounded-full bg-[#0C9DE0]  group-hover:w-[calc(100%-10px)] group-focus:w-[calc(100%-10px)]"></div>
                 <span className="w-[44px] h-[44px] rounded-full flex items-center justify-center z-10">
                   <i className="ri-phone-line text-white"></i>
                 </span>
@@ -235,7 +235,7 @@ export default function PerformanceSection() {
                   />
                 </div>
                 <div className="flex flex-col gap-[8px] p-[8px]">
-                  <div className="text-orange-500 text-[48px] font-bold leading-[1.1]">
+                  <div className="text-[#0C9DE0] text-[48px] font-bold leading-[1.1]">
                     {stat.number}
                   </div>
                   <div className="text-black text-[18px] leading-[1.3] font-medium">

@@ -117,13 +117,10 @@ const HeroSection = () => {
               />
             </h1>
           </div>
-          <div className="hidden md:flex items-center space-x-8 text-white">
-            <a href="#" className="hover:text-orange-400 transition-colors">Trang chủ</a>
-            <a href="#" className="hover:text-orange-400 transition-colors">Về chúng tôi</a>
-            <a href="#" className="hover:text-orange-400 transition-colors">Dịch vụ</a>
+          <div className="hidden md:flex items-center space-x-8 text-white">            
             <button 
               onClick={scrollToContact}
-              className="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full transition-colors whitespace-nowrap"
+              className="bg-[#0C9DE0] hover:bg-[#0c9de0c9] px-6 py-2 rounded-full transition-colors whitespace-nowrap"
             >
               Tư vấn miễn phí
             </button>
@@ -270,7 +267,7 @@ const HeroSection = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap text-sm"
+                  className="w-full bg-[#0C9DE0] hover:bg-[#0c9de0c9] text-white py-3 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap text-sm"
                 >
                   {isSubmitting ? 'Đang gửi...' : 'Gửi thông tin tư vấn'}
                 </button>

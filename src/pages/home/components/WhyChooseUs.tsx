@@ -46,7 +46,7 @@ export default function WhyChooseUs() {
 
       <div className="flex lg:flex-row flex-col items-start justify-between gap-8 pt-[40px]">
         <AnimatedSection className="flex flex-shrink-0 items-center gap-3">
-          <div className="w-[14px] h-[14px] bg-orange-500 rounded-sm"></div>
+          <div className="w-[14px] h-[14px] bg-[#0C9DE0] rounded-sm"></div>
           <span className="text-[16px] font-medium leading-[1.5] text-gray-600">
             Giải pháp toàn diện cho chủ villa
           </span>
@@ -65,7 +65,7 @@ export default function WhyChooseUs() {
           <AnimatedSection delay={400}>
             <div>
               <button className="h-[54px] px-[5px] rounded-full text-black flex gap-[14px] items-center relative group bg-gray-100">
-                <div className="absolute w-[44px] transition-all duration-300 h-[44px] left-[5px] rounded-full bg-orange-500 group-hover:w-[calc(100%-10px)] group-focus:w-[calc(100%-10px)]"></div>
+                <div className="absolute w-[44px] transition-all duration-300 h-[44px] left-[5px] rounded-full bg-[#0C9DE0] group-hover:w-[calc(100%-10px)] group-focus:w-[calc(100%-10px)]"></div>
                 <span className="w-[44px] h-[44px] rounded-full flex items-center justify-center z-10">
                   <i className="ri-phone-line text-white"></i>
                 </span>
@@ -85,7 +85,7 @@ export default function WhyChooseUs() {
                 <div className="h-full">
                   <div className="h-full flex flex-col bg-gradient-to-b from-orange-50 to-white border border-orange-100 shadow-[0px_26px_26px_0px_rgba(196,196,196,0.09),0px_162px_45px_0px_rgba(196,196,196,0)] px-[32px] py-[40px] rounded-[16px] transition-all duration-300 hover:border-2 hover:border-orange-200">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-12 bg-[#0C9DE0] rounded-lg flex items-center justify-center">
                         <i className={`${feature.icon} text-white text-xl`}></i>
                       </div>
                     </div>

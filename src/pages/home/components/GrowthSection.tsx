@@ -49,7 +49,7 @@ export default function GrowthSection() {
       </div>
 
       <div className="flex flex-col gap-[32px] justify-center items-center text-center max-w-[490px] mx-auto h-full z-10 relative">
-        <AnimatedSection className="md:text-[60px] text-[40px] leading-[1.1] font-semibold whitespace-break-spaces text-black text-center text-orange-500">
+        <AnimatedSection className="md:text-[60px] text-[40px] leading-[1.1] font-semibold whitespace-break-spaces text-black text-center text-[#0C9DE0]">
           <div>Hơn 100+ chủ villa đã đồng hành cùng Trường Thành Phát</div>
         </AnimatedSection>
 
@@ -67,7 +67,7 @@ export default function GrowthSection() {
             onClick={scrollToContact}
             className="h-[54px] px-[5px] rounded-full text-black flex gap-[14px] items-center relative group bg-white cursor-pointer"
           >
-            <div className="absolute w-[44px] transition-all duration-300 h-[44px] left-[5px] rounded-full bg-orange-500 group-hover:w-[calc(100%-10px)] group-focus:w-[calc(100%-10px)]"></div>
+            <div className="absolute w-[44px] transition-all duration-300 h-[44px] left-[5px] rounded-full bg-[#0C9DE0]  group-hover:w-[calc(100%-10px)] group-focus:w-[calc(100%-10px)]"></div>
             <span className="w-[44px] h-[44px] rounded-full flex items-center justify-center z-10">
               <i className="ri-phone-line text-white"></i>
             </span>
