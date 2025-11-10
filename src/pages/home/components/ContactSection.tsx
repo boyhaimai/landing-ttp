@@ -1,105 +1,147 @@
-
-import { useState } from 'react';
+import { useState } from "react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    city: '',
-    address: '',
-    size: '',
-    room: ''
+    name: "",
+    phone: "",
+    email: "",
+    city: "",
+    address: "",
+    size: "",
+    room: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitMessage('');
+    setSubmitMessage("");
 
     try {
-      const formDataToSend = new FormData();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value);
-      });
+      const formDataGoogle = new FormData();
+      formDataGoogle.append("entry.1396816815", formData.name); // Họ tên
+      formDataGoogle.append("entry.1772751811", formData.email); // Số điện thoại
+      formDataGoogle.append("entry.1616529917", formData.phone); // Email
+      formDataGoogle.append("entry.1421974604", formData.city); // Khu vực
+      formDataGoogle.append("entry.1707147357", formData.address); // Vị trí BĐS
+      formDataGoogle.append("entry.1999122647", formData.size); // Diện tích đất
+      formDataGoogle.append("entry.149271890", formData.room); // Số phòng
 
-      const response = await fetch('https://readdy.ai/api/form/d48ecqvjsic9gsa4uud0', {
-        method: 'POST',
-        body: formDataToSend,
-      });
+      await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSeV6tDy_RyG50XLApBPV7Tjp0p_9dzm3kC6wIjNid6bEbX_qw/formResponse",
+        {
+          method: "POST",
+          mode: "no-cors", // tránh lỗi CORS
+          body: formDataGoogle,
+        }
+      );
 
-      if (response.ok) {
-        setSubmitMessage('Cảm ơn bạn! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
-        setFormData({
-          name: '',
-          phone: '',
-          email: '',
-          city: '',
-          address: '',
-          size: '',
-          room: ''
-        });
-      } else {
-        setSubmitMessage('Có lỗi xảy ra. Vui lòng thử lại sau.');
-      }
+      setSubmitMessage(
+        "✅ Gửi thành công! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất."
+      );
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        city: "",
+        address: "",
+        size: "",
+        room: "",
+      });
     } catch (error) {
-      setSubmitMessage('Có lỗi xảy ra. Vui lòng thử lại sau.');
+      setSubmitMessage("❌ Có lỗi xảy ra. Vui lòng thử lại sau.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact-section" className="lg:max-h-[900px] bg-cover bg-center mt-[80px] lg:mt-[160px] md:p-[40px] p-3 lg:p-0 flex justify-center text-start" style={{backgroundImage: "url('https://readdy.ai/api/search-image?query=Modern%20luxury%20villa%20resort%20with%20orange%20sunset%20sky%20background%2C%20professional%20hospitality%20business%20setting%2C%20warm%20lighting%2C%20contemporary%20architecture%2C%20peaceful%20atmosphere%2C%20high-end%20property%20management%20concept&width=1920&height=900&seq=contact-bg-001&orientation=landscape')"}}>
+    <section
+      id="contact-section"
+      className="lg:max-h-[900px] bg-cover bg-center mt-[80px] lg:mt-[160px] md:p-[40px] p-3 lg:p-0 flex justify-center text-start"
+      style={{
+        backgroundImage:
+          "url('https://readdy.ai/api/search-image?query=Modern%20luxury%20villa%20resort%20with%20orange%20sunset%20sky%20background%2C%20professional%20hospitality%20business%20setting%2C%20warm%20lighting%2C%20contemporary%20architecture%2C%20peaceful%20atmosphere%2C%20high-end%20property%20management%20concept&width=1920&height=900&seq=contact-bg-001&orientation=landscape')",
+      }}
+    >
       <div className="container lg:translate-y-[-80px]">
         <div className="bg-gradient-to-r from-[#0C9DE0] to-[#0C9DE0] lg:p-[80px] md:p-[40px] p-4 flex lg:flex-row flex-col gap-[16px]">
           <div className="flex-1 lg:w-0">
-            <div className="lg:text-[36px] text-[28px] text-white font-medium">Đăng ký tư vấn miễn phí ngay hôm nay!</div>
+            <div className="lg:text-[36px] text-[28px] text-white font-medium">
+              Đăng ký tư vấn miễn phí ngay hôm nay!
+            </div>
             <div className="lg:py-[20px] py-[15px] flex flex-col gap-[30px]">
               <div className="text-white lg:text-[18px] text-[16px] leading-[1.5] mb-6">
-                Đội ngũ chuyên gia của Trường Thành Phát Travel sẽ giúp bạn tìm ra mô hình vận hành phù hợp nhất.
+                Đội ngũ chuyên gia của Trường Thành Phát Travel sẽ giúp bạn tìm
+                ra mô hình vận hành phù hợp nhất.
               </div>
-              
+
               <div>
-                <div className="text-white text-[18px] leading-[1.5]">📞 Hotline</div>
-                <div className="text-white lg:text-[32px] text-[24px] leading-[1.2] font-semibold break-words">0967330197</div>
+                <div className="text-white text-[18px] leading-[1.5]">
+                  📞 Hotline
+                </div>
+                <div className="text-white lg:text-[32px] text-[24px] leading-[1.2] font-semibold break-words">
+                  0967330197
+                </div>
               </div>
-              
+
               <div>
-                <div className="text-white text-[18px] leading-[1.5]">📍 Văn phòng</div>
-                <div className="text-white lg:text-[24px] text-[18px] leading-[1.2] font-semibold break-words">TT06-01, Khu biệt thự Beverly Hills Hạ Long, Bãi Cháy, Quảng Ninh</div>
+                <div className="text-white text-[18px] leading-[1.5]">
+                  📍 Văn phòng
+                </div>
+                <div className="text-white lg:text-[24px] text-[18px] leading-[1.2] font-semibold break-words">
+                  TT06-01, Khu biệt thự Beverly Hills Hạ Long, Bãi Cháy, Quảng
+                  Ninh
+                </div>
               </div>
-              
+
               <div>
-                <div className="text-white text-[18px] leading-[1.5]">🌐 Website</div>
-                <div className="text-white lg:text-[32px] text-[24px] leading-[1.2] font-semibold">halongbonmua.com</div>
+                <div className="text-white text-[18px] leading-[1.5]">
+                  🌐 Website
+                </div>
+                <div className="text-white lg:text-[32px] text-[24px] leading-[1.2] font-semibold">
+                  halongbonmua.com
+                </div>
               </div>
             </div>
           </div>
-          
+
           <div className="flex-shrink-0">
             <div className="relative w-full max-w-[610px] lg:h-auto rounded-xl bg-white md:p-[40px] p-[16px] shadow-xl">
               <div className="flex flex-col gap-[24px]">
-                <div className="text-[32px] text-gray-800 font-semibold">Liên hệ hợp tác</div>
-                
+                <div className="text-[32px] text-gray-800 font-semibold">
+                  Liên hệ hợp tác
+                </div>
+
                 {submitMessage && (
-                  <div className={`p-4 rounded-lg ${submitMessage.includes('Cảm ơn') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  <div
+                    className={`p-4 rounded-lg ${
+                      submitMessage.includes("Cảm ơn")
+                        ? "bg-green-100 text-green-800"
+                        : "bg-red-100 text-red-800"
+                    }`}
+                  >
                     {submitMessage}
                   </div>
                 )}
-                
-                <form onSubmit={handleSubmit} className="flex flex-col gap-[24px]" data-readdy-form>
+
+                <form
+                  onSubmit={handleSubmit}
+                  className="flex flex-col gap-[24px]"
+                  data-readdy-form
+                >
                   <div>
                     <div className="text-base pb-2 text-gray-800">Họ tên</div>
                     <input
@@ -111,7 +153,7 @@ const ContactSection = () => {
                       required
                     />
                   </div>
-                  
+
                   <div className="flex gap-[16px] md:flex-row flex-col">
                     <div className="flex-1">
                       <div className="text-base pb-2 text-gray-800">Email</div>
@@ -125,7 +167,9 @@ const ContactSection = () => {
                       />
                     </div>
                     <div className="flex-1">
-                      <div className="text-base pb-2 text-gray-800">Số điện thoại</div>
+                      <div className="text-base pb-2 text-gray-800">
+                        Số điện thoại
+                      </div>
                       <input
                         className="block w-full border rounded-[8px] focus-visible:outline-0 focus:ring-0 px-3 py-3 bg-transparent transition-colors border-gray-300 placeholder:text-gray-500 text-gray-800"
                         placeholder="+84 123 456 789"
@@ -136,7 +180,7 @@ const ContactSection = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <div className="text-gray-800 text-base pb-2">Khu vực</div>
                     <div className="relative">
@@ -146,9 +190,13 @@ const ContactSection = () => {
                         value={formData.city}
                         onChange={handleInputChange}
                       >
-                        <option value="" disabled>Tỉnh/thành phố</option>
+                        <option value="" disabled>
+                          Tỉnh/thành phố
+                        </option>
                         <option value="An Giang">An Giang</option>
-                        <option value="Bà Rịa – Vũng Tàu">Bà Rịa – Vũng Tàu</option>
+                        <option value="Bà Rịa – Vũng Tàu">
+                          Bà Rịa – Vũng Tàu
+                        </option>
                         <option value="Bắc Giang">Bắc Giang</option>
                         <option value="Bắc Kạn">Bắc Kạn</option>
                         <option value="Bạc Liêu">Bạc Liêu</option>
@@ -212,9 +260,11 @@ const ContactSection = () => {
                       </select>
                     </div>
                   </div>
-                  
+
                   <div>
-                    <div className="text-base pb-2 text-gray-800">Vị trí bất động sản</div>
+                    <div className="text-base pb-2 text-gray-800">
+                      Vị trí bất động sản
+                    </div>
                     <input
                       className="block w-full border rounded-[8px] focus-visible:outline-0 focus:ring-0 px-3 py-3 bg-transparent transition-colors border-gray-300 placeholder:text-gray-500 text-gray-800"
                       placeholder="Vui lòng nhập địa chỉ cụ thể bất động sản"
@@ -223,10 +273,12 @@ const ContactSection = () => {
                       onChange={handleInputChange}
                     />
                   </div>
-                  
+
                   <div className="flex gap-[16px] md:flex-row flex-col">
                     <div className="flex-1">
-                      <div className="text-base pb-2 text-gray-800">Tổng diện tích đất (m²)</div>
+                      <div className="text-base pb-2 text-gray-800">
+                        Tổng diện tích đất (m²)
+                      </div>
                       <input
                         type="number"
                         className="block w-full border rounded-[8px] focus-visible:outline-0 focus:ring-0 px-3 py-3 bg-transparent transition-colors border-gray-300 placeholder:text-gray-500 text-gray-800"
@@ -237,7 +289,9 @@ const ContactSection = () => {
                       />
                     </div>
                     <div className="flex-1">
-                      <div className="text-base pb-2 text-gray-800">Số phòng</div>
+                      <div className="text-base pb-2 text-gray-800">
+                        Số phòng
+                      </div>
                       <input
                         type="number"
                         className="block w-full border rounded-[8px] focus-visible:outline-0 focus:ring-0 px-3 py-3 bg-transparent transition-colors border-gray-300 placeholder:text-gray-500 text-gray-800"
@@ -248,17 +302,18 @@ const ContactSection = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <button
                     className="bg-[#0C9DE0] hover:bg-[#0c9de0c9] rounded-[8px] h-[56px] w-full flex items-center justify-center text-white text-base flex-shrink-0 transition-colors duration-300 whitespace-nowrap"
                     type="submit"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'Đang gửi...' : 'Gửi thông tin tư vấn'}
+                    {isSubmitting ? "Đang gửi..." : "Gửi thông tin tư vấn"}
                   </button>
-                  
+
                   <div className="text-gray-600 text-sm">
-                    Bằng cách nhấn nút Gửi, bạn đồng ý với chính sách quyền riêng tư của chúng tôi.
+                    Bằng cách nhấn nút Gửi, bạn đồng ý với chính sách quyền
+                    riêng tư của chúng tôi.
                   </div>
                 </form>
               </div>

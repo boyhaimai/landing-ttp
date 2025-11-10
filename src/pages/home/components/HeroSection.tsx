@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState } from "react";
 
 interface FormData {
   name: string;
@@ -13,93 +12,153 @@ interface FormData {
 
 const HeroSection = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    city: '',
-    address: '',
-    size: '',
-    room: ''
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    address: "",
+    size: "",
+    room: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitMessage('');
+    setSubmitMessage("");
 
     try {
-      const formBody = new URLSearchParams();
-      Object.entries(formData).forEach(([key, value]) => {
-        formBody.append(key, value);
-      });
+      const formDataGoogle = new FormData();
+      formDataGoogle.append("entry.1065222794", formData.name); // Họ và tên
+      formDataGoogle.append("entry.753427360", formData.phone); // Email
+      formDataGoogle.append("entry.187081614", formData.email); // Số điện thoại
+      formDataGoogle.append("entry.313043242", formData.city); // Tỉnh/Thành phố
+      formDataGoogle.append("entry.875255124", formData.size); // Điểm đến mong muốn
+      formDataGoogle.append("entry.15772667", formData.address); // Số ngày du lịch
+      formDataGoogle.append("entry.511863384", formData.room); // Số người tham gia
 
-      const response = await fetch('https://readdy.ai/api/form/submit/travel-consultation', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formBody.toString()
-      });
+      await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSf-BSCjIIAXelh-an-Ke66Yb1HV3mMS3SwcGtyDss5DUthjMA/formResponse",
+        {
+          method: "POST",
+          mode: "no-cors",
+          body: formDataGoogle,
+        }
+      );
 
-      if (response.ok) {
-        setSubmitMessage('Cảm ơn bạn! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          city: '',
-          address: '',
-          size: '',
-          room: ''
-        });
-      } else {
-        setSubmitMessage('Có lỗi xảy ra. Vui lòng thử lại sau.');
-      }
+      setSubmitMessage(
+        "✅ Gửi thành công! Dữ liệu đã được lưu vào Google Sheets."
+      );
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        city: "",
+        address: "",
+        size: "",
+        room: "",
+      });
     } catch (error) {
-      setSubmitMessage('Có lỗi xảy ra. Vui lòng thử lại sau.');
+      setSubmitMessage("❌ Có lỗi xảy ra, vui lòng thử lại.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact-section');
+    const contactSection = document.getElementById("contact-section");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const cities = [
-    'An Giang', 'Bà Rịa – Vũng Tàu', 'Bắc Giang', 'Bắc Kạn', 'Bạc Liêu', 'Bắc Ninh', 'Bến Tre',
-    'Bình Định', 'Bình Dương', 'Bình Phước', 'Bình Thuận', 'Cà Mau', 'Cần Thơ', 'Cao Bằng',
-    'Đà Nẵng', 'Đắk Lắk', 'Đắk Nông', 'Điện Biên', 'Đồng Nai', 'Đồng Tháp', 'Gia Lai',
-    'Hà Giang', 'Hà Nam', 'Hà Nội', 'Hà Tĩnh', 'Hải Dương', 'Hải Phòng', 'Hậu Giang',
-    'Hòa Bình', 'Hưng Yên', 'Khánh Hòa', 'Kiên Giang', 'Kon Tum', 'Lạng Sơn', 'Lâm Đồng',
-    'Lai Châu', 'Lào Cai', 'Long An', 'Nam Định', 'Nghệ An', 'Ninh Bình', 'Ninh Thuận',
-    'Phú Thọ', 'Phú Yên', 'Quảng Bình', 'Quảng Nam', 'Quảng Ngãi', 'Quảng Ninh', 'Quảng Trị',
-    'Sóc Trăng', 'Sơn La', 'Tây Ninh', 'Thái Bình', 'Thái Nguyên', 'Thanh Hóa', 'Thừa Thiên Huế',
-    'Tiền Giang', 'TP. Hồ Chí Minh', 'Trà Vinh', 'Tuyên Quang', 'Vĩnh Long', 'Vĩnh Phúc', 'Yên Bái'
+    "An Giang",
+    "Bà Rịa – Vũng Tàu",
+    "Bắc Giang",
+    "Bắc Kạn",
+    "Bạc Liêu",
+    "Bắc Ninh",
+    "Bến Tre",
+    "Bình Định",
+    "Bình Dương",
+    "Bình Phước",
+    "Bình Thuận",
+    "Cà Mau",
+    "Cần Thơ",
+    "Cao Bằng",
+    "Đà Nẵng",
+    "Đắk Lắk",
+    "Đắk Nông",
+    "Điện Biên",
+    "Đồng Nai",
+    "Đồng Tháp",
+    "Gia Lai",
+    "Hà Giang",
+    "Hà Nam",
+    "Hà Nội",
+    "Hà Tĩnh",
+    "Hải Dương",
+    "Hải Phòng",
+    "Hậu Giang",
+    "Hòa Bình",
+    "Hưng Yên",
+    "Khánh Hòa",
+    "Kiên Giang",
+    "Kon Tum",
+    "Lạng Sơn",
+    "Lâm Đồng",
+    "Lai Châu",
+    "Lào Cai",
+    "Long An",
+    "Nam Định",
+    "Nghệ An",
+    "Ninh Bình",
+    "Ninh Thuận",
+    "Phú Thọ",
+    "Phú Yên",
+    "Quảng Bình",
+    "Quảng Nam",
+    "Quảng Ngãi",
+    "Quảng Ninh",
+    "Quảng Trị",
+    "Sóc Trăng",
+    "Sơn La",
+    "Tây Ninh",
+    "Thái Bình",
+    "Thái Nguyên",
+    "Thanh Hóa",
+    "Thừa Thiên Huế",
+    "Tiền Giang",
+    "TP. Hồ Chí Minh",
+    "Trà Vinh",
+    "Tuyên Quang",
+    "Vĩnh Long",
+    "Vĩnh Phúc",
+    "Yên Bái",
   ];
 
   return (
     <section className="relative min-h-screen flex items-center">
       {/* Background Image */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(https://static.readdy.ai/image/4a3482445aede2b455dbed1f5755971b/ab32816e8aedaaca5c656a0b6bd74d89.jpeg)',
-          backgroundPosition: 'center center'
+          backgroundImage:
+            "url(https://static.readdy.ai/image/4a3482445aede2b455dbed1f5755971b/ab32816e8aedaaca5c656a0b6bd74d89.jpeg)",
+          backgroundPosition: "center center",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
@@ -110,15 +169,15 @@ const HeroSection = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center">
             <h1>
-              <img 
-                src="https://static.readdy.ai/image/4a3482445aede2b455dbed1f5755971b/eb11c37d3d9cec27517a9bcf855401d8.jpeg" 
-                alt="Trường Thành Phát Travel" 
+              <img
+                src="https://static.readdy.ai/image/4a3482445aede2b455dbed1f5755971b/eb11c37d3d9cec27517a9bcf855401d8.jpeg"
+                alt="Trường Thành Phát Travel"
                 className="h-12 w-auto"
               />
             </h1>
           </div>
-          <div className="hidden md:flex items-center space-x-8 text-white">            
-            <button 
+          <div className="hidden md:flex items-center space-x-8 text-white">
+            <button
               onClick={scrollToContact}
               className="bg-[#0C9DE0] hover:bg-[#0c9de0c9] px-6 py-2 rounded-full transition-colors whitespace-nowrap"
             >
@@ -141,21 +200,32 @@ const HeroSection = () => {
                 Mở đầu hành trình khám phá cùng Trường Thành Phát Travel
               </p>
             </div>
-            
+
             <div className="text-base opacity-90 max-w-lg">
-              Trường Thành Phát Travel giúp bạn biến villa nghỉ dưỡng thành tài sản sinh lời bền vững, với hệ thống vận hành, marketing và khai thác chuyên sâu dành riêng cho phân khúc nghỉ dưỡng cao cấp.
-            </div>           
+              Trường Thành Phát Travel giúp bạn biến villa nghỉ dưỡng thành tài
+              sản sinh lời bền vững, với hệ thống vận hành, marketing và khai
+              thác chuyên sâu dành riêng cho phân khúc nghỉ dưỡng cao cấp.
+            </div>
           </div>
 
           {/* Right Form */}
           <div className="flex-shrink-0">
             <div className="bg-white rounded-xl p-6 shadow-2xl max-w-md w-full">
               <div className="mb-4">
-                <h3 className="text-xl font-bold text-gray-800 mb-1">Liên hệ tư vấn tour</h3>
-                <p className="text-sm text-gray-600">Để lại thông tin để nhận tư vấn miễn phí</p>
+                <h3 className="text-xl font-bold text-gray-800 mb-1">
+                  Liên hệ tư vấn tour
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Để lại thông tin để nhận tư vấn miễn phí
+                </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-3" data-readdy-form id="travel-consultation">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-3"
+                data-readdy-form
+                id="travel-consultation"
+              >
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Họ và tên *
@@ -214,7 +284,9 @@ const HeroSection = () => {
                   >
                     <option value="">Chọn tỉnh/thành phố</option>
                     {cities.map((city) => (
-                      <option key={city} value={city}>{city}</option>
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -269,17 +341,24 @@ const HeroSection = () => {
                   disabled={isSubmitting}
                   className="w-full bg-[#0C9DE0] hover:bg-[#0c9de0c9] text-white py-3 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap text-sm"
                 >
-                  {isSubmitting ? 'Đang gửi...' : 'Gửi thông tin tư vấn'}
+                  {isSubmitting ? "Đang gửi..." : "Gửi thông tin tư vấn"}
                 </button>
 
                 {submitMessage && (
-                  <div className={`text-center text-xs ${submitMessage.includes('Cảm ơn') ? 'text-green-600' : 'text-red-600'}`}>
+                  <div
+                    className={`text-center text-xs ${
+                      submitMessage.includes("Cảm ơn")
+                        ? "text-green-600"
+                        : "text-red-600"
+                    }`}
+                  >
                     {submitMessage}
                   </div>
                 )}
 
                 <p className="text-xs text-gray-500 text-center">
-                  Bằng cách nhấn nút Gửi, bạn đồng ý với chính sách quyền riêng tư của chúng tôi.
+                  Bằng cách nhấn nút Gửi, bạn đồng ý với chính sách quyền riêng
+                  tư của chúng tôi.
                 </p>
               </form>
             </div>
