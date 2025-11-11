@@ -99,7 +99,7 @@ const FloatingButtons = () => {
       {/* Main button */}
       <button
         onClick={toggleMenu}
-        className={`w-14 h-14 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg transition-all duration-300 transform ${isOpen ? 'rotate-45' : ''} flex items-center justify-center`}
+        className={`w-14 h-14 bg-[#0C9DE0] hover:bg-[#0c9de0c9] text-white rounded-full shadow-lg transition-all duration-300 transform ${isOpen ? 'rotate-45' : ''} flex items-center justify-center`}
       >
         <i className={`${isOpen ? 'ri-close-line' : 'ri-customer-service-2-line'} text-xl`}></i>
       </button>
