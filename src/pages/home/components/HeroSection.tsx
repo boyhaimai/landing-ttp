@@ -41,37 +41,37 @@ const HeroSection = () => {
 
     try {
       const formDataGoogle = new FormData();
-      formDataGoogle.append("entry.1065222794", formData.name); // Họ và tên
-      formDataGoogle.append("entry.753427360", formData.phone); // Email
-      formDataGoogle.append("entry.187081614", formData.email); // Số điện thoại
-      formDataGoogle.append("entry.313043242", formData.city); // Tỉnh/Thành phố
-      formDataGoogle.append("entry.875255124", formData.size); // Điểm đến mong muốn
-      formDataGoogle.append("entry.15772667", formData.address); // Số ngày du lịch
-      formDataGoogle.append("entry.511863384", formData.room); // Số người tham gia
+      formDataGoogle.append("entry.1396816815", formData.name); // Họ tên
+      formDataGoogle.append("entry.1772751811", formData.email); // Số điện thoại
+      formDataGoogle.append("entry.1616529917", formData.phone); // Email
+      formDataGoogle.append("entry.1421974604", formData.city); // Khu vực
+      formDataGoogle.append("entry.1707147357", formData.address); // Vị trí BĐS
+      formDataGoogle.append("entry.1999122647", formData.size); // Diện tích đất
+      formDataGoogle.append("entry.149271890", formData.room); // Số phòng
 
       await fetch(
-        "https://docs.google.com/forms/d/e/1FAIpQLSf-BSCjIIAXelh-an-Ke66Yb1HV3mMS3SwcGtyDss5DUthjMA/formResponse",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeV6tDy_RyG50XLApBPV7Tjp0p_9dzm3kC6wIjNid6bEbX_qw/formResponse",
         {
           method: "POST",
-          mode: "no-cors",
+          mode: "no-cors", // tránh lỗi CORS
           body: formDataGoogle,
         }
       );
 
       setSubmitMessage(
-        "✅ Gửi thành công! Dữ liệu đã được lưu vào Google Sheets."
+        "✅ Gửi thành công! Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất."
       );
       setFormData({
         name: "",
-        email: "",
         phone: "",
+        email: "",
         city: "",
         address: "",
         size: "",
         room: "",
       });
     } catch (error) {
-      setSubmitMessage("❌ Có lỗi xảy ra, vui lòng thử lại.");
+      setSubmitMessage("❌ Có lỗi xảy ra. Vui lòng thử lại sau.");
     } finally {
       setIsSubmitting(false);
     }
@@ -213,11 +213,8 @@ const HeroSection = () => {
             <div className="bg-white rounded-xl p-6 shadow-2xl max-w-md w-full">
               <div className="mb-4">
                 <h3 className="text-xl font-bold text-gray-800 mb-1">
-                  Liên hệ tư vấn tour
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Để lại thông tin để nhận tư vấn miễn phí
-                </p>
+                  Liên hệ tư hợp tác
+                </h3>                
               </div>
 
               <form
@@ -266,7 +263,7 @@ const HeroSection = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                      placeholder="0967330197"
+                      placeholder="0899277577"
                       required
                     />
                   </div>
@@ -274,7 +271,7 @@ const HeroSection = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Tỉnh/Thành phố
+                    Khu vực
                   </label>
                   <select
                     name="city"
@@ -293,7 +290,7 @@ const HeroSection = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Điểm đến mong muốn
+                    Vị trí bất động sản
                   </label>
                   <input
                     type="text"
@@ -301,14 +298,14 @@ const HeroSection = () => {
                     value={formData.address}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                    placeholder="Vui lòng nhập điểm đến bạn muốn khám phá"
+                    placeholder="Vui lòng nhập địa chỉ cụ thể bất động sản"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Số ngày du lịch
+                     Tổng diện tích đất (m²)
                     </label>
                     <input
                       type="number"
@@ -316,13 +313,13 @@ const HeroSection = () => {
                       value={formData.size}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                      placeholder="Ví dụ: 3 ngày"
+                      placeholder="Tối thiểu 250 m²"
                       min="1"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Số người tham gia
+                     Số phòng
                     </label>
                     <input
                       type="number"
@@ -330,7 +327,7 @@ const HeroSection = () => {
                       value={formData.room}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                      placeholder="Ví dụ: 4 người"
+                      placeholder="Tối thiểu 30 phòng"
                       min="1"
                     />
                   </div>

@@ -16,17 +16,17 @@ const FloatingButtons = () => {
   };
 
   const handleCall = () => {
-    window.open('tel:0967330197', '_self');
+    window.open('tel:0899277577', '_self');
     setIsOpen(false);
   };
 
-  const handleMessage = () => {
-    window.open('sms:0967330197', '_self');
-    setIsOpen(false);
-  };
+  // const handleFacebook = () => {
+  //   window.open('https://facebook.com/truongthanhphattravel', '_blank');
+  //   setIsOpen(false);
+  // };
 
   const handleZalo = () => {
-    window.open('https://zalo.me/0967330197', '_blank');
+    window.open('https://zalo.me/0899277577', '_blank');
     setIsOpen(false);
   };
 
@@ -35,25 +35,29 @@ const FloatingButtons = () => {
       icon: 'ri-user-add-line',
       label: 'Đăng ký tư vấn',
       action: scrollToContact,
-      color: 'bg-blue-500 hover:bg-blue-600'
+      color: 'bg-blue-500 hover:bg-blue-600',
+      isImage: false
     },
     {
       icon: 'ri-phone-line',
       label: 'Gọi điện',
       action: handleCall,
-      color: 'bg-green-500 hover:bg-green-600'
+      color: 'bg-green-500 hover:bg-green-600',
+      isImage: false
     },
+    // {
+    //   icon: 'https://cdn-v2.mvillage.vn/b2b-landing-page/images/icons/messenger.svg?w=32&q=80',
+    //   label: 'Facebook',
+    //   action: handleFacebook,
+    //   color: 'bg-white hover:bg-gray-50 border-2 border-gray-200',
+    //   isImage: true
+    // },
     {
-      icon: 'ri-message-3-line',
-      label: 'Nhắn tin',
-      action: handleMessage,
-      color: 'bg-purple-500 hover:bg-purple-600'
-    },
-    {
-      icon: 'ri-chat-1-line',
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/2048px-Icon_of_Zalo.svg.png',
       label: 'Chat Zalo',
       action: handleZalo,
-      color: 'bg-blue-600 hover:bg-blue-700'
+      color: 'bg-[#1D90F1] hover:bg-[#36A3E8]',
+      isImage: true
     }
   ];
 
@@ -71,7 +75,15 @@ const FloatingButtons = () => {
                   animation: `fadeInUp 0.3s ease-out ${index * 0.1}s both`
                 }}
               >
-                <i className={`${option.icon} text-lg`}></i>
+                {option.isImage ? (
+                  <img 
+                    src={option.icon} 
+                    alt={option.label}
+                    className="w-6 h-6 object-contain"
+                  />
+                ) : (
+                  <i className={`${option.icon} text-lg`}></i>
+                )}
               </button>
               
               {/* Tooltip */}
@@ -87,7 +99,7 @@ const FloatingButtons = () => {
       {/* Main button */}
       <button
         onClick={toggleMenu}
-        className={`w-14 h-14 bg-[#0C9DE0]  hover:bg-orange-600 text-white rounded-full shadow-lg transition-all duration-300 transform ${isOpen ? 'rotate-45' : ''} flex items-center justify-center`}
+        className={`w-14 h-14 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg transition-all duration-300 transform ${isOpen ? 'rotate-45' : ''} flex items-center justify-center`}
       >
         <i className={`${isOpen ? 'ri-close-line' : 'ri-customer-service-2-line'} text-xl`}></i>
       </button>
