@@ -282,7 +282,6 @@ const ContactSection = () => {
                       <input
                         type="number"
                         className="block w-full border rounded-[8px] focus-visible:outline-0 focus:ring-0 px-3 py-3 bg-transparent transition-colors border-gray-300 placeholder:text-gray-500 text-gray-800"
-                        placeholder="Tối thiểu 250 m²"
                         name="size"
                         value={formData.size}
                         onChange={handleInputChange}
@@ -295,7 +294,6 @@ const ContactSection = () => {
                       <input
                         type="number"
                         className="block w-full border rounded-[8px] focus-visible:outline-0 focus:ring-0 px-3 py-3 bg-transparent transition-colors border-gray-300 placeholder:text-gray-500 text-gray-800"
-                        placeholder="Tối thiểu 30 phòng"
                         name="room"
                         value={formData.room}
                         onChange={handleInputChange}

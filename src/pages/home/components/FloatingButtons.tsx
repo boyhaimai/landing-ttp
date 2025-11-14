@@ -62,7 +62,7 @@ const FloatingButtons = () => {
   ];
 
   return (
-    <div className="fixed right-6 bottom-20 z-50">
+    <div className="fixed right-7 bottom-20 z-50">
       {/* Option buttons */}
       {isOpen && (
         <div className="flex flex-col space-y-3 mb-4">

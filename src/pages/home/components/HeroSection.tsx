@@ -313,7 +313,6 @@ const HeroSection = () => {
                       value={formData.size}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                      placeholder="Tối thiểu 250 m²"
                       min="1"
                     />
                   </div>
@@ -327,7 +326,6 @@ const HeroSection = () => {
                       value={formData.room}
                       onChange={handleInputChange}
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm"
-                      placeholder="Tối thiểu 30 phòng"
                       min="1"
                     />
                   </div>

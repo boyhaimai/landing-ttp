@@ -6,7 +6,7 @@ import img1 from '../../../components/images/z7198753997114_80e6e4c3a5dc12d464a1
 import img2 from '../../../components/images/z7198753997154_319835783ec874a058bab789407c91d8.jpg';
 import img3 from '../../../components/images/z7198753997167_699f02fd051db19e904bdca5e6a22da1.jpg';
 import img4 from '../../../components/images/z7198753997147_7bb9e7416eb470a17dcea77a7bc944e6.jpg';
-import img5 from '../../../components/images/bd-vn-ok.png';
+import img5 from '../../../components/images/bd-vn-ok.jpg';
 
 
 
@@ -171,11 +171,11 @@ export default function BrandEcosystem() {
             <AnimatedSection delay={500}>
               <div className="flex-shrink-0 flex flex-col gap-[24px] lg:items-start items-center">
                 <div className="flex flex-row items-center gap-[20px] w-[240px] lg:w-auto">
-                  <div className="lg:w-[40px] w-[20px] lg:h-[40px] h-[20px] bg-orange-500  rounded-full flex-shrink-0"></div>
+                  <div className="lg:w-[40px] w-[20px] lg:h-[40px] h-[20px] bg-[#F6BB29]  rounded-full flex-shrink-0"></div>
                   <div className="lg:text-[20px] text-[16px] font-medium leading-[1.4]">Đang hoạt động</div>
                 </div>
                 <div className="flex flex-row items-center gap-[20px] w-[240px] lg:w-auto">
-                  <div className="lg:w-[40px] w-[20px] lg:h-[40px] h-[20px] bg-[#9FBB50]  rounded-full flex-shrink-0"></div>
+                  <div className="lg:w-[40px] w-[20px] lg:h-[40px] h-[20px] bg-[#89CC0B]  rounded-full flex-shrink-0"></div>
                   <div className="lg:text-[20px] text-[16px] font-medium leading-[1.4]">Kế hoạch mở rộng</div>
                 </div>
               </div>
