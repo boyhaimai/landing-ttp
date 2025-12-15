@@ -213,7 +213,7 @@ const HeroSection = () => {
             <div className="bg-white rounded-xl p-6 shadow-2xl max-w-md w-full">
               <div className="mb-4">
                 <h3 className="text-xl font-bold text-gray-800 mb-1">
-                  Liên hệ tư hợp tác
+                  Liên hệ tư vấn và hợp tác
                 </h3>                
               </div>
 
